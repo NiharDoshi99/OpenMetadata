@@ -1185,7 +1185,7 @@ def _(connection: DagsterClient) -> None:
     from metadata.utils.graphql_queries import TEST_QUERY_GRAPHQL
 
     try:
-        connection._execute(TEST_QUERY_GRAPHQL)  # pylint: disable=protected-access
+        connection.client._execute(TEST_QUERY_GRAPHQL)  # pylint: disable=protected-access
     except Exception as exc:
         msg = f"Unknown error connecting with {connection}: {exc}."
         raise SourceConnectionException(msg) from exc
